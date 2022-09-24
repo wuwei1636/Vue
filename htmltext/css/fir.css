@@ -1,0 +1,20 @@
+
+.last {
+    height: 325px;
+    width: 1020px;
+    background-color: #9c9191;
+}
+.tu {
+    height: 285px;
+    width: 330px;
+    margin-left: 260px;
+    padding-top: 40px;
+    background-color: #2f2f2f;
+    float: left;
+}
+.wenzi {
+    height: 285px;
+    width: 80px;
+    background-color: red;
+    float: right;
+}

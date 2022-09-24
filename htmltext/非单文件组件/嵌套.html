@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+
+<div id="root">
+
+    <app></app>
+    <hr>
+
+</div>
+
+<script type="text/javascript">
+    Vue.config.productionTip =false
+
+
+    const student = Vue.extend({
+        template:`
+           <div>
+               <h2>学生名称：{{studentname}}</h2>
+               <h2>学生地址：{{studentaddress}}</h2>
+           <button @click="change">点我发生变化</button>
+           </div>
+        `,
+        // el:'#root', 组件不能写el配置项
+        data(){
+            return{
+                studentname:"张三",
+                studentaddress:"登封"
+            }
+        },
+        methods:{
+            change(){
+                this.studentname = "nihao"
+            }
+        }
+    })
+
+    // 创建school 组件
+    const school = Vue.extend({
+        template:`
+           <div>
+               <h2>学校名称：{{name}}</h2>
+               <h2>学校地址：{{address}}</h2>
+               <student></student>
+           </div>
+        `,
+        // el:'#root', 组件不能写el配置项
+        data(){
+            return{
+                name:"嵩阳高中",
+                address:"北京"
+            }
+        },
+        components:{
+            student,
+        }
+    })
+
+    const hello = Vue.extend({
+        template:`
+        <div>
+          <h2>{{helloname}}</h2>
+        </div>
+        `,
+        data(){
+            return{
+                helloname:"你好",
+            }
+        }
+    })
+
+    const app = Vue.extend({
+        template:`
+        <div>
+          <hello></hello>
+          <school></school>
+        </div>
+        `,
+        components:{
+            hello,
+            school,
+        }
+    })
+
+    // 注册组件
+    new Vue({
+        el:'#root',
+        components:{
+            app
+        }
+    })
+
+</script>
+
+</body>
+</html>

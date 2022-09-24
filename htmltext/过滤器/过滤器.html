@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+    // cdn 引用
+    <script src="https://cdn.bootcdn.net/ajax/libs/dayjs/1.11.3/dayjs.min.js"></script>
+</head>
+<body>
+
+
+<div id="root">
+    <h2>
+        格式化之前的时间
+    </h2>
+    <h3>现在是{{time}}</h3>
+<!--    计算属性实现-->
+    <h3>格式化之后{{fmtTime}}</h3>
+    <h3>格式化之后{{ fmtime() }}</h3>
+
+    <h3>{{ time | timeFormat(time)}}</h3>
+</div>
+
+
+<script type="text/javascript">
+    Vue.config.productionTip = false;
+
+    new Vue({
+        el:'#root',
+        data:{
+            time:1658560593723,
+        },
+        // 计算属性实现
+        computed:{
+            fmtTime(){
+                return dayjs(this.time).format('YYYY-MM-DD HH-mm-ss');
+            }
+        },
+        methods:{
+            fmtime(){
+                return dayjs(this.time).format('YYYY-MM-DD HH-mm-ss');
+            }
+        },
+        filter:{
+            timeFormat(value){
+                return dayjs(value).format('YYYY-MM-DD HH-mm-ss');
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

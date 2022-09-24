@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/vue.js"></script>
+</head>
+<body>
+
+
+<div id="root">
+    <input type="text" placeholder="请输入名字" v-model="keywords">
+    <button @click="sortType = 2">年龄升序</button>
+    <button @click="sortType = 1">年龄降序</button>
+    <button @click="sortType = 0">年龄原顺序</button>
+    <ul>
+        <li v-for="(p,index) of filPerson" :key="p.id">
+            {{p.name}} - {{p.age}}
+            <input type="text">
+        </li>
+    </ul>
+</div>
+
+<script type="text/javascript">
+    Vue.config.productionTip = false;
+
+    // watch 实现
+    // new Vue({
+    //     el: '#root',
+    //     data: {
+    //         keywords:'',
+    //         persons:[
+    //             {id:'001',name:'马冬梅',age:18},
+    //             {id:'002',name:'周杰伦',age:19},
+    //             {id:'003',name:'周冬雨',age:30},
+    //             {id:'004',name:'温兆伦',age:40}
+    //         ],
+    //         filPerson:[
+    //
+    //         ]
+    //     },
+    //     watch:{
+    //         keywords:{
+    //             immediate:true,
+    //             handler(val){
+    //                 this.filPerson = this.persons.filter((p)=>{
+    //                     return p.name.indexOf(val) !== -1
+    //                 })
+    //             }
+    //         }
+    //     }
+    // })
+
+    // computed 实现
+    new Vue({
+        el: '#root',
+        data: {
+            keywords:'',
+            sortType:0, // 0 - 原顺序 1 - 降序 2 - 升序
+            persons:[
+                {id:'001',name:'马冬梅',age:31},
+                {id:'002',name:'周杰伦',age:19},
+                {id:'003',name:'周冬雨',age:30},
+                {id:'004',name:'温兆伦',age:29}
+            ]
+        },
+        computed:{
+            filPerson(){
+                const arr =  this.persons.filter((p)=>{
+                    return p.name.indexOf(this.keywords) !== -1
+                })
+                if(this.sortType){
+                    arr.sort((p1,p2)=>{
+                        return this.sortType === 1 ? p2.age - p1.age : p1.age - p2.age
+                    })
+                }
+                return arr;
+            }
+        }
+    })
+
+</script>
+
+</body>
+</html>

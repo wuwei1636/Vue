@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <div id = 'root'>
+        <h1>你们好,{{name}}， {{adress}} {{char}}</h1>
+    </div>
+
+    <!--
+        初始vue：
+        想要vue工作，必须创建一个vue实例，并且传入一个配置对象
+        root里面的语法依然符合html规范，只不过加入了一些vue语法
+        root里面的代码被称为vue模板
+        vue 和实例是一一对应的
+        真实开发中只有一个vue实例，并且会配合着组件一起使用
+        {{xxx}}中的xxx要写js表达式，且xxx会自动读取data中的所有属性
+    -->
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false;
+
+        new Vue({
+            el:'#root',
+            data: { // data中用于存储数据，数据让el所使用的容器使用
+                name: '世界人民',
+                adress: '我在北京',
+                char: 'nimenzaina',
+            }
+        })
+    </script>
+</body>
+</html>

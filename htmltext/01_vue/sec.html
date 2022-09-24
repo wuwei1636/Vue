@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+<!--
+        vue中有两种绑定方式
+            1. 单向绑定（v-bind），数据只能从data流向界面
+            2. 双向绑定（v-model）， 数据不仅能从data流向界面，还能从界面流向data
+                备注：
+                    1. 双向绑定一般都应用在表单类元素上 如（input， select）
+                    2. v-model：value 可以简写为 v-model， 因为v-model默认手机的就是value的值
+-->
+<!--    准备好一个容器-->
+    <div class = "root">
+        <h1>你们好</h1>
+        <h3>你好，{{name}}</h3>
+        <hr/>
+
+        <a v-bind:href="url">点我去百度</a>
+
+    </div>
+</body>
+    <script type="text/javascript">
+        Vue.config.productionTip = false;  // 阻止vue在生产的过程中产生提示
+
+        new Vue({
+            el: '.root',
+            data: {
+                name:'jack',
+                url: 'http://baidu.com',
+            }
+
+        })
+
+    </script>
+</html>

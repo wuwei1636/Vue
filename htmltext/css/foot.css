@@ -1,0 +1,161 @@
+/* ==================================================
+  Back to top
+  ================================================== */
+
+.scrolltop {
+  display: none;
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #199EB8;
+  color: #fff;
+  text-align: center;
+  font-size: 24px;
+  z-index: 100;
+}
+
+.scrolltop:hover, .scrolltop:active, .scrolltop:focus {
+  color: #fff !important;
+  opacity: .75;
+}
+
+/* ==================================================
+  English link
+  ================================================== */
+.english{
+  width: auto;
+  height: auto;
+  background-color: #b6124a;
+  position: fixed;
+  top: 80px;
+  right: 0;
+  z-index: 100;
+}
+.english a{
+  font-size: 2em;
+  color: white;
+}
+.english a:hover p{
+  text-decoration: underline;
+}
+.english p{
+  width: 36px;
+  height: 50px;
+  line-height: 50px;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: white;
+}
+
+/* ==================================================
+  Footer Styling
+  ================================================== */
+.site-footer {
+  background-color: #111;
+  padding: 0;
+}
+
+.site-footer h2, .site-footer p {
+  color: #fff;
+}
+
+.site-footer p {
+  opacity: .75;
+  line-height: 2.0925;
+}
+
+.site-footer h2,
+.site-footer .btn {
+  margin-bottom: 25px;
+}
+
+
+.site-footer .bottom {
+  background-color: #000;
+  padding: 20px 0;
+}
+
+.site-footer .bottom p {
+  margin: 0;
+  color: white;
+}
+
+
+.site-footer .bottom .copyright a {
+  color: #199EB8;
+}
+
+.site-footer .bottom .copyright a:hover {
+  color: #28dcff;
+  text-decoration: underline;
+}
+
+.weixin img{
+  width: 120px;
+  height: 120px;
+}
+
+.panoramic-QR img{
+  width: 120px;
+  height: 120px;
+}
+
+/*-- responsive-start-here --*/
+@media (max-width:1080px){
+  .english a{
+    font-size: 1.5em;
+  }
+  .english p{
+    width: 28px;
+    height: 25px;
+    line-height: 25px;
+  }
+}
+@media (max-width:1024px){
+
+}
+@media (max-width:991px){
+
+}
+@media (max-width:900px){
+
+}
+@media (max-width:800px){
+
+}
+@media (max-width:768px){
+
+}
+@media (max-width:767px){
+
+}
+@media (max-width:667px){
+
+}
+@media (max-width:640px){
+
+}
+@media (max-width:600px){
+
+}
+@media (max-width:568px){
+
+}
+@media (max-width: 576px){
+
+}
+@media (max-width:480px){
+
+}
+@media (max-width:414px){
+
+}
+@media (max-width:384px){
+
+}
+@media (max-width:320px){
+
+}

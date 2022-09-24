@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+
+
+<div id="root">
+    <school></school>
+    <hr>
+    <student></student>
+</div>
+
+
+<script type="text/javascript">
+    Vue.config.productionTip =false
+
+    // 创建school 组件
+    const school = Vue.extend({
+        template:`
+           <div>
+               <h2>学校名称：{{name}}</h2>
+               <h2>学校地址：{{address}}</h2>
+           </div>
+        `,
+        // el:'#root', 组件不能写el配置项
+        data(){
+            return{
+                name:"嵩阳高中",
+                address:"北京"
+            }
+        }
+    })
+
+    const student = Vue.extend({
+        template:`
+           <div>
+               <h2>学生名称：{{studentname}}</h2>
+               <h2>学生地址：{{studentaddress}}</h2>
+           <button @click="change">点我发生变化</button>
+           </div>
+        `,
+        // el:'#root', 组件不能写el配置项
+        data(){
+            return{
+                studentname:"张三",
+                studentaddress:"登封"
+            }
+        },
+        methods:{
+            change(){
+                this.studentname = "nihao"
+            }
+        }
+    })
+
+
+    // 注册组件
+    new Vue({
+        el:'#root',
+        components:{
+            school:school,
+            student:student,
+        }
+    })
+
+</script>
+
+</body>
+</html>

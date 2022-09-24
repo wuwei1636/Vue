@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+
+<div id="root">
+    <h2 :style="{opacity}">欢迎学习vue</h2>
+    <button @click="test">niaho </button>
+</div>
+
+<script type="text/javascript">
+    Vue.config.productionTip = false
+
+    new Vue({
+        el:'#root',
+        data:{
+            opacity: 1
+        },
+        //监听 post方法
+        methods:{
+            test(){
+                const axios = require('axios');
+                axios.post('http://zegsnc.natappfree.cc/cluster/static/virtualTest/getAllSiteFlow', {
+                    "jsonrpc": "2.0",
+                    "method": "user.login",
+                    "params": {
+                        "user": this.loginData.username,
+                        "password": this.loginData.password
+                    },
+                    "id": 1,
+                    "auth": null
+                })
+                    .then(function (response) {
+                        console.log(response);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+
+            }
+        },
+        // vue 把初始的界面放入页面中 调用 mounted() 挂载
+        mounted(){
+            setInterval(()=>{
+                this.opacity -= 0.01
+                if(this.opacity <= 0) this.opacity = 1;
+            },16)
+        }
+    })
+
+</script>
+
+</body>
+</html>
